@@ -158,6 +158,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Enabled = false;
             this.DeleteButton.Location = new System.Drawing.Point(366, 307);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(139, 43);
@@ -169,6 +170,7 @@
             // 
             // RedButton
             // 
+            this.RedButton.Enabled = false;
             this.RedButton.Location = new System.Drawing.Point(20, 307);
             this.RedButton.Name = "RedButton";
             this.RedButton.Size = new System.Drawing.Size(340, 43);

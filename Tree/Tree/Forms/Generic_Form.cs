@@ -107,6 +107,8 @@ namespace Tree
                 UpdateMainChilrenBox(childrenlist);
                 AllparUpd();
                 AllchilUpd();
+                RedButton.Enabled = true;
+                DeleteButton.Enabled = true;
             }
              else
             {
@@ -122,6 +124,8 @@ namespace Tree
                 allpar = null;
                 AllAncBox.Items.Clear();
                 AllDescBox.Items.Clear();
+                RedButton.Enabled = false;
+                DeleteButton.Enabled = false;
             }
         }
 
@@ -139,9 +143,12 @@ namespace Tree
                 {
                     foreach (string t in allpar[h].Parents)
                     {
-                        if (t != null && AddForm.IDCheck(allpar, SearchByID(t, humanlist).ID)) 
+                        if (t != null) 
                         {
-                            temp.Add(SearchByID(t, humanlist));
+                            if (AddForm.IDCheck(allpar, SearchByID(t, humanlist).ID))
+                            {
+                                temp.Add(SearchByID(t, humanlist));
+                            }
                         }
                     }
                 }
@@ -165,9 +172,12 @@ namespace Tree
                 {
                     foreach (string t in allchil[h].Children)
                     {
-                        if (t != null && AddForm.IDCheck(allchil, SearchByID(t, humanlist).ID)) 
+                        if (t != null)
                         {
-                           temp.Add(SearchByID(t, humanlist));
+                            if (AddForm.IDCheck(allchil, SearchByID(t, humanlist).ID))
+                            { 
+                                temp.Add(SearchByID(t, humanlist));
+                            }
                         }
                     }
                 }
@@ -430,6 +440,9 @@ namespace Tree
                             hh.Children[pp] = hh.Children[pp + 1];
                         }
                         hh.Childq--;
+                        var temp = new String[hh.Childq];
+                        Array.Copy(hh.Children, temp, hh.Childq);
+                        hh.Children = temp;
                     }
                 }
             }
@@ -444,7 +457,9 @@ namespace Tree
             humandb.dblist.Remove(SearchByID(chosenhuman.ID, humandb.dblist));
             Update(humandb);
             chosenhuman = null;
-            ChosenUpdate();     
+            ChosenUpdate();
+            humandb.Date_Last_Edit = DateTime.Now.Date;
+            label18.Text = humandb.Date_Last_Edit.ToShortDateString();
         }
 
         public static int IndexByID(string id, List<Human> hums)

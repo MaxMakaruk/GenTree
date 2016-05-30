@@ -19,9 +19,7 @@ namespace Tree
         private static string Validate_Code { get { return GetHashCode("210798"); } }
         public DateTime Date_Create { get; }
         public DateTime Date_Last_Edit { get; set; }
-       
-
-        
+              
 
         public HumanDB(string clan_name, string code)
         {
@@ -41,32 +39,7 @@ namespace Tree
             Date_Last_Edit = StringToDate(date_last_edit);
             dblist = new List<Human>();
         }
-
-
-
-        //public static List<Human> TableToHuman(DataTable table)
-        //{
-        //    List<Human> res = new List<Human>();
-        //    DataRow temp;
-        //    for (int i = 0; i < table.Rows.Count; i++)
-        //    {
-        //        temp = table.Rows[i];
-        //        res.Add(new Human(temp.ItemArray[0].ToString(), temp.ItemArray[1].ToString(), temp.ItemArray[2].ToString(), Convert.ToDateTime(temp.ItemArray[3]),
-        //            Convert.ToBoolean(temp.ItemArray[4]), Convert.ToDateTime(temp.ItemArray[5]), ConStringMass(temp.ItemArray[6]), Convert.ToInt32(temp.ItemArray[7]),
-        //           ConStringMass(temp.ItemArray[8]), temp.ItemArray[9].ToString()));
-
-        //    }
-        //    return res;
-        //}
-
-
-        //public static string[] ConStringMass(object obj)
-        //{
-        //    string[] res;
-        //    res = obj as string[];
-        //    return res;
-        //}
-
+               
 
         public static DateTime StringToDate(string str)
         {
@@ -81,13 +54,7 @@ namespace Tree
             catch { throw new FormatException(Properties.Resources.Error_Validate_Str_Date); }
         }
 
-        //    public void AddHuman(Human newHuman)
-        //{
-        //    DB.Rows.Add(newHuman.Name, newHuman.SName, newHuman.FName, newHuman.BornDate, newHuman.Life, newHuman.DeathDate, newHuman.Parents, newHuman.Childq, newHuman.Children, newHuman.humaninf, newHuman.ID);
-        //    Date_Last_Edit = DateTime.Now.Date;
-        //}
-
-
+        
         public void WtiteToTxt(string path)
         {
             if (this != null)

@@ -242,7 +242,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RedForm";
-            this.Text = "Форма добавления человека";
+            this.Text = "Форма редактирования человека";
             this.Load += new System.EventHandler(this.AddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
